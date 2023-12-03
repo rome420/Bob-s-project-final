@@ -145,4 +145,14 @@ public class myDate
     }
   }
 
+  public int yearBetween(myDate otherDate)
+  {
+    int years = Math.abs(this.year - otherDate.getYear());
+    return years;
+  }
+
+
+
+
+
 }
