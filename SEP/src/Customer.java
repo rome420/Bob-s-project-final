@@ -1,4 +1,4 @@
-public abstract class Customer
+public class Customer
 {
   String name;
   long phoneNumber;
