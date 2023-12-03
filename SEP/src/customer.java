@@ -1,3 +1,5 @@
-public class customer
+public abstract class customer
 {
 }
+
+
