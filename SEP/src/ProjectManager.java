@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProjectManager { //hOIhieohfwqhfohweifowefhiwqfo
+public class ProjectManager {
   private List<Project> projects;
   private List<Customer> customers;
 
@@ -57,5 +57,21 @@ public class ProjectManager { //hOIhieohfwqhfohweifowefhiwqfo
     return null;
   }
 
+  public List<Project> getProjectsByType(String projectType) {
+    List<Project> projectsByType = new ArrayList<>();
 
+    for (Project project : projects) {
+      if (projectType.equalsIgnoreCase("Commercial") && project instanceof Commercial) {
+        projectsByType.add(project);
+      } else if (projectType.equalsIgnoreCase("Industrial") && project instanceof Industrial) {
+        projectsByType.add(project);
+      } else if (projectType.equalsIgnoreCase("RoadConstruction") && project instanceof RoadConstruction) {
+        projectsByType.add(project);
+      } else if (projectType.equalsIgnoreCase("Residential") && project instanceof Residential) {
+        projectsByType.add(project);
+      }
+    }
+
+    return projectsByType;
+  }
 }
