@@ -40,5 +40,13 @@ public class projectList extends project
     return null;
   }
 
+  public void removeProject(project project, boolean isFinished) {
+    if (isFinished) {
+      completedProjects.remove(project);
+    } else {
+      unfinishedProjects.remove(project);
+    }
+  }
+
 
 }
