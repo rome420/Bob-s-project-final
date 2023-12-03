@@ -1,19 +1,16 @@
-public class Industrial
-{
-  double squareMeters;
+class Industrial extends Project {
+  private double squareMeters;
 
-  public Industrial(double squareMeters)
-  {
-    this.squareMeters=squareMeters;
+  public Industrial(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
+      double estimatedPrice, String projectStatus, double projectId, double manHoursUsed,
+      double squareMeters) {
+    super(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus, projectId, manHoursUsed);
+    this.squareMeters = squareMeters;
   }
 
-  public double getSquareMeters()
-  {
+  public double getSquareMeters() {
     return squareMeters;
   }
 
-  public void setSquareMeters(double squareMeters)
-  {
-    this.squareMeters=squareMeters;
-  }
+  // Additional methods or properties specific to Industrial projects...
 }
