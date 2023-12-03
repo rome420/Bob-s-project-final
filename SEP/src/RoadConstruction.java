@@ -1,8 +1,8 @@
-public class roadConstruction
+public class RoadConstruction
 {
   double roadLengthKilometers;
 
-  public roadConstruction(double roadLengthKilometers)
+  public RoadConstruction(double roadLengthKilometers)
   {
     this.roadLengthKilometers=roadLengthKilometers;
   }

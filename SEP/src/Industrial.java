@@ -1,8 +1,8 @@
-public class residential
+public class Industrial
 {
   double squareMeters;
 
-  public residential(double squareMeters)
+  public Industrial(double squareMeters)
   {
     this.squareMeters=squareMeters;
   }

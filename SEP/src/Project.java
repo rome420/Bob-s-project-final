@@ -1,11 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
-
-public abstract class project {
+public abstract class Project
+{
   private String projectType;
-  private myDate startDate;
-  private myDate endDate;
-  private myDate expectedDuration;
+  private MyDate startDate;
+  private MyDate endDate;
+  private MyDate expectedDuration;
   private double estimatedPrice;
   private String projectStatus;
   private boolean isFinished;
@@ -13,14 +11,14 @@ public abstract class project {
 
   private double manHoursUsed;
 
-  public Project(String projectType, myDate startDate, myDate endDate, myDate expectedDuration, double estimatedPrice, String projectStatus) {
+  public Project(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration, double estimatedPrice, String projectStatus) {
     this.projectType = projectType;
     this.startDate = startDate;
     this.endDate = endDate;
     this.expectedDuration = expectedDuration;
     this.estimatedPrice = estimatedPrice;
     this.projectStatus = projectStatus;
-    // Assuming the default value for isFinished is false when a project is created
+    // Assuming the default value for isFinished is false when a Project is created
     this.isFinished = false;
   }
 
@@ -29,15 +27,15 @@ public abstract class project {
     return projectType;
   }
 
-  public myDate getStartDate() {
+  public MyDate getStartDate() {
     return startDate;
   }
 
-  public myDate getEndDate() {
+  public MyDate getEndDate() {
     return endDate;
   }
 
-  public myDate getExpectedDuration() {
+  public MyDate getExpectedDuration() {
     return expectedDuration;
   }
 
@@ -58,15 +56,15 @@ public abstract class project {
     this.projectType = projectType;
   }
 
-  public void setStartDate(myDate startDate) {
+  public void setStartDate(MyDate startDate) {
     this.startDate = startDate;
   }
 
-  public void setEndDate(myDate endDate) {
+  public void setEndDate(MyDate endDate) {
     this.endDate = endDate;
   }
 
-  public void setExpectedDuration(myDate expectedDuration) {
+  public void setExpectedDuration(MyDate expectedDuration) {
     this.expectedDuration = expectedDuration;
   }
 
@@ -82,11 +80,7 @@ public abstract class project {
     this.isFinished = isFinished;
   }
 
-  // Abstract method to assign a team member
-  public abstract int assignTeamMember(int teamMemberNumber);
 
-  // Additional method to get the list of team members
-  public abstract List<Integer> getTeamMembers();
 }
 
 

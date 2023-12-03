@@ -1,9 +1,9 @@
-public abstract class customer
+public abstract class Customer
 {
   String name;
   long phoneNumber;
 
-  public customer (String name, long phoneNumber)
+  public Customer(String name, long phoneNumber)
   {
     this.name=name;
     this.phoneNumber=phoneNumber;

@@ -1,4 +1,4 @@
-public class myDate
+public class MyDate
 {
   private int day;
   private int month;
@@ -8,7 +8,7 @@ public class myDate
 
   private String monthName;
 
-  public myDate(int day, int month, int year)
+  public MyDate(int day, int month, int year)
   {
     this.day = day;
     this.month = month;
@@ -145,7 +145,7 @@ public class myDate
     }
   }
 
-  public int yearBetween(myDate otherDate)
+  public int yearBetween(MyDate otherDate)
   {
     int years = Math.abs(this.year - otherDate.getYear());
     return years;

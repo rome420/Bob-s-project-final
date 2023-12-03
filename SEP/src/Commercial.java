@@ -1,8 +1,9 @@
-public class industrial
+public class Commercial
 {
   double squareMeters;
 
-  public industrial(double squareMeters)
+
+  public Commercial(double squareMeters)
   {
     this.squareMeters=squareMeters;
   }
