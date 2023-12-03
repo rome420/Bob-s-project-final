@@ -1,4 +1,4 @@
-public abstract class Project
+public class Project
 {
   private String projectType;
   private MyDate startDate;
