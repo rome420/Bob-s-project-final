@@ -1,4 +1,4 @@
-public class customer
+public abstract class customer
 {
   String name;
   long phoneNumber;
@@ -29,3 +29,5 @@ public class customer
     this.phoneNumber=phoneNumber;
   }
 }
+
+
