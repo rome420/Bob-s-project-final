@@ -41,12 +41,31 @@ public class projectList extends project
   }
 
   public void removeProject(project project, boolean isFinished) {
-    if (isFinished) {
+    if (isFinished == true) {
       completedProjects.remove(project);
     } else {
       unfinishedProjects.remove(project);
     }
   }
+
+  public void searchProjectByType(String projectType)
+  {
+    for (project p : completedProjects) {
+      if (p.getProjectType().equals(projectType)) {
+        return p;
+      }
+    }
+
+    for (project p : unfinishedProjects) {
+      if (p.getProjectType().equals(projectType)) {
+        return p;
+      }
+    }
+
+    return null;
+  }
+
+
 
 
 }
