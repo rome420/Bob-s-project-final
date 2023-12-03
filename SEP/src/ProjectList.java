@@ -5,9 +5,9 @@ public class ProjectList {
   ArrayList<Project> unfinishedProjects = new ArrayList<>();
 
   public ProjectList(String projectType, MyDate startDate, MyDate endDate,
-      MyDate expectedDuration, double estimatedPrice, String projectStatus) {
+      MyDate expectedDuration, double estimatedPrice, String projectStatus,Boolean isFinnished,double projectId,double manHoursUsed) {
     // Assuming Project has a similar constructor, adjust as needed
-    Project project = new Project(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus);
+    Project project = new Project(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus,isFinnished,projectId,manHoursUsed);
     addProject(project, false);  // Assuming new projects are unfinished by default
   }
 
