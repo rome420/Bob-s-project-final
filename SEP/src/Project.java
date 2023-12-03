@@ -65,7 +65,7 @@ public abstract class Project
     return isFinished;
   }
 
-  public double getProjectId()
+  public double getId()
   {
     return projectId;
   }
