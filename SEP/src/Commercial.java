@@ -12,5 +12,4 @@ class Commercial extends Project {
     return squareMeters;
   }
 
-  // Additional methods or properties specific to Commercial projects...
 }
