@@ -1,21 +1,23 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProjectList {
-  ArrayList<Project> completedProjects = new ArrayList<>();
-  ArrayList<Project> unfinishedProjects = new ArrayList<>();
+  private List<Project> completedProjects = new ArrayList<>();
+  private List<Project> unfinishedProjects = new ArrayList<>();
 
   public ProjectList(String projectType, MyDate startDate, MyDate endDate,
-      MyDate expectedDuration, double estimatedPrice, String projectStatus,Boolean isFinnished,double projectId,double manHoursUsed) {
-    // Assuming Project has a similar constructor, adjust as needed
-    Project project = new Project(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus,isFinnished,projectId,manHoursUsed);
+      MyDate expectedDuration, double estimatedPrice, String projectStatus,
+      double projectId, double manHoursUsed) {
+    Project project = new Project(projectType, startDate, endDate, expectedDuration,
+        estimatedPrice, projectStatus, projectId, manHoursUsed);
     addProject(project, false);  // Assuming new projects are unfinished by default
   }
 
-  public ArrayList<Project> getCompletedProjects() {
+  public List<Project> getCompletedProjects() {
     return completedProjects;
   }
 
-  public ArrayList<Project> getUnfinishedProjects() {
+  public List<Project> getUnfinishedProjects() {
     return unfinishedProjects;
   }
 
@@ -27,7 +29,7 @@ public class ProjectList {
     }
   }
 
-  public Project retrieveProjectById(long id) {
+  public Project retrieveProjectById(double id) {
     for (Project p : completedProjects) {
       if (p.getId() == id) {
         return p;

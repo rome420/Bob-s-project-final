@@ -1,8 +1,8 @@
-User
+
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Project
+public class Project
 {
   private String projectType;
   private MyDate startDate;
@@ -143,6 +143,7 @@ public abstract class Project
 
     return report.toString();
   }
+
 
 
 
