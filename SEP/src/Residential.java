@@ -1,5 +1,5 @@
 class Residential extends Project {
-  private double squareMeters;
+  private double squareMeters;//rrrrrrr
 
   public Residential(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
       double estimatedPrice, String projectStatus, double projectId, double manHoursUsed,
