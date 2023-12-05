@@ -1,3 +1,9 @@
+/**
+ * A class representing a date
+ *
+ * @author Maciej Rom
+ * @version 1.0 December 2023
+ */
 public class myDate
 {
   private int day;
@@ -8,26 +14,54 @@ public class myDate
 
   private String monthName;
 
+  /**
+   * Three-argument constructor. Illegal dates are converted to legal dates;
+   * A negative year is set to its positive counterpart
+   * A month less then 1 is set to 1 and a day more than 12 the last day is set to 12
+   * A day less than 1 is set to 1 and a day more than the last day of
+   * the specified month is set to this last day
+   * @param day the day
+   * @param month the month
+   * @param year the year
+   */
   public myDate(int day, int month, int year)
   {
     this.day = day;
     this.month = month;
     this.year = year;
   }
+
+  /**
+   * A simple getter returning the day
+   * @return the day
+   */
   public int getDay()
   {
     return day;
   }
 
+  /**
+   * A simple getter returning the month
+   * @return the month
+   */
   public int getMonth()
   {
     return month;
   }
 
+  /**
+   * A simple getter returning the year
+   * @return the year
+   */
   public int getYear()
   {
     return year;
   }
+
+  /**
+   * A method which gets the month name by using a number
+   * @return the name of the month
+   */
   public String getMonthName()
   {
     if (month == 1)
@@ -81,6 +115,11 @@ public class myDate
     return monthName;
   }
 
+  /**
+   * A method that returns the number of the days in a month according if its
+   * Leap year or not
+   * @return the number of days in a month
+   */
   public int numberOfDaysInMonth()
   {
     if (isLeapYear() == true && month == 2)
@@ -105,6 +144,15 @@ public class myDate
 
   }
 
+  /**
+   * A set method converting a negative year to its positive counterpart
+   *    * A month less then 1 is set to 1 and a day more than 12 the last day is set to 12
+   *    * A day less than 1 is set to 1 and a day more than the last day of
+   *    * the specified month is set to this last day
+   * @param day the day
+   * @param month the month
+   * @param year the year
+   */
   public void set(int day, int month, int year)
   {
     this.day = day;
@@ -133,6 +181,10 @@ public class myDate
     }
   }
 
+  /**
+   * A boolean method verifying if its Leap year or not
+   * @return the value for the Leap year (true or false)
+   */
   public boolean isLeapYear()
   {
     if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
