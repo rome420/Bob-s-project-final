@@ -3,7 +3,7 @@ public class RoadConstruction extends Project {
   private double roadWidthMeters;
   private int numberOfRoadAlterations;
   private String challenges;
-  private double budget;
+  private double budget;////wfwqfweqvqwdwq
 
 
   public RoadConstruction(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
