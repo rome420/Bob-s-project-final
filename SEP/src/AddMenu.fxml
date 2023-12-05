@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox prefHeight="537.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="66.0" prefWidth="456.0">
@@ -64,7 +63,7 @@
          <children>
             <HBox prefHeight="50.0" prefWidth="228.0">
                <children>
-                  <Label text="Timeline">
+                  <Label text="Duration">
                      <HBox.margin>
                         <Insets left="50.0" top="10.0" />
                      </HBox.margin>
