@@ -1,4 +1,4 @@
-class Industrial extends Project {
+class Industrial extends Project { // aa
   private double squareMeters;
 
   public Industrial(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
