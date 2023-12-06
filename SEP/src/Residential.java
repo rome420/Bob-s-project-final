@@ -1,5 +1,9 @@
 class Residential extends Project {
-  private double squareMeters;//rrrrrrr
+  private double squareMeters;
+  private int numberOfKitchens;
+  private int numberOfBathrooms;
+  private int otherRoomsWithPlumbing;
+  private boolean isNewBuild;
 
   public Residential(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
       double estimatedPrice, String projectStatus, double projectId, double manHoursUsed,
@@ -12,5 +16,5 @@ class Residential extends Project {
     return squareMeters;
   }
 
-  // Additional methods or properties specific to Residential projects...
+//
 }
