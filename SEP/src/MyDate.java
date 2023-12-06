@@ -14,6 +14,10 @@ public class MyDate
     this.month = month;
     this.year = year;
   }
+  public MyDate(int month) {
+    this.month = month;
+  }
+
   public int getDay()
   {
     return day;
