@@ -1,32 +1,28 @@
-class Commercial extends Project {
-  private double squareMeters;
-  private int numberOfFloors;
+public class Commercial extends Project {
   private String buildingUse;
 
-
-  public Commercial(String projectType, MyDate startDate, MyDate endDate, MyDate durationInMonths,
-      double estimatedPrice, String projectStatus, int projectId, double manHoursUsed,
-      double squareMeters,int numberOfFloors,String buildingUse) {
-    super(projectType, startDate, endDate, durationInMonths, estimatedPrice, projectStatus, projectId, manHoursUsed);
-    this.squareMeters = squareMeters;
-    this.numberOfFloors = 1;
-    this.buildingUse = buildingUse;
+  public Commercial(String projectType, MyDate startDate, ProjectManager projectManager) {
+    super(projectType, startDate, projectManager);
+    this.buildingUse = "Default Building Use"; // Default value, change as needed
+    setDefaultValues();
   }
 
-  public double getSquareMeters() {
-    return squareMeters;
-  }
+  private void setDefaultValues() {
+    // Set Commercial-specific default values
+    double estimatedPrice = 500000;
+    int durationInMonths = 18;
 
-  public void setSquareMeters(double squareMeters) {
-    this.squareMeters = squareMeters;
-  }
+    // Validate the estimated price and duration
+    if (estimatedPrice >= 500000 && estimatedPrice <= 2000000 && durationInMonths >= 12 && durationInMonths <= 24) {
+      this.setEstimatedPrice(estimatedPrice);
+      this.setDurationInMonths(durationInMonths);
+    } else {
+      this.setEstimatedPrice(0);
+      this.setDurationInMonths(0);
+    }
 
-  public int getNumberOfFloors() {
-    return numberOfFloors;
-  }
-
-  public void setNumberOfFloors(int numberOfFloors) {
-    this.numberOfFloors = numberOfFloors;
+    // Set other default values for Commercial
+    this.setBuildingUse("Default Building Use");
   }
 
   public String getBuildingUse() {
@@ -36,10 +32,7 @@ class Commercial extends Project {
   public void setBuildingUse(String buildingUse) {
     this.buildingUse = buildingUse;
   }
-
-
 }
-
 
 
 

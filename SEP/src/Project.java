@@ -7,30 +7,32 @@ public class Project
   private String projectType;
   private MyDate startDate;
   private MyDate endDate;
-  private MyDate durationInMonths;
+  private int durationInMonths;
   private double estimatedPrice;
   private String projectStatus;
   private boolean isFinished;
   private int projectId;
   private double manHoursUsed;
 
-  public Project(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration, double estimatedPrice, String projectStatus,
-      int projectId, double manHoursUsed)
+  public Project(String projectType, MyDate startDate, ProjectManager projectManager)
   {
     this.projectType = projectType;
     this.startDate = startDate;
-    if (endDate == null) {
-      this.endDate = new MyDate(); // You can set a default value or leave it as null
-    } else {
-      this.endDate = endDate;
-    }
-    this.durationInMonths = durationInMonths;
-    this.estimatedPrice = estimatedPrice;
-    this.projectStatus = projectStatus;
-    // Assuming the default value for isFinished is false when a project is created
-    this.isFinished = false;
+    this.endDate = new MyDate(); // Set a default value for endDate
+    this.durationInMonths = 0; // Set a default value for durationInMonths
+    this.estimatedPrice = 0; // Default value, change as needed
+    this.projectStatus = "Not Started"; // Default value, change as needed
+    this.isFinished = false; // Default value
     this.projectId = ++lastAssignedId;
-    this.manHoursUsed = 0;
+    this.manHoursUsed = 0; // Default value
+    // Set default values based on the projectType directly in the constructor
+    setDefaultValues(projectType);
+  }
+
+  private void setDefaultValues(String projectType) {
+    // Set default values based on the projectType
+    // You can directly set values here based on the projectType
+    // For example, check the projectType and set estimatedPrice, durationInMonths, etc.
   }
 
   // Getter methods...
@@ -49,8 +51,7 @@ public class Project
     return endDate;
   }
 
-  public MyDate getDurationInMonths()
-  {
+  public int getDurationInMonths() {
     return durationInMonths;
   }
 
@@ -100,7 +101,7 @@ public class Project
   }
 
   public void setDurationInMonths(int months) {
-    this.durationInMonths = new MyDate(months);
+    this.durationInMonths = months;
   }
 
   public void setEstimatedPrice(double estimatedPrice)
@@ -136,7 +137,7 @@ public class Project
     report.append("Project Type: ").append(projectType).append("\n");
     report.append("Start Date: ").append(startDate).append("\n");
     report.append("End Date: ").append(endDate).append("\n");
-    report.append("Expected Duration: ").append(durationInMonths).append("\n");
+    report.append("Expected Duration: ").append(durationInMonths).append(" months\n");
     report.append("Estimated Price: $").append(estimatedPrice).append("\n");
     report.append("Project Status: ").append(projectStatus).append("\n");
     report.append("Is Finished: ").append(isFinished).append("\n");

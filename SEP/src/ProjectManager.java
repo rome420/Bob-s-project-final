@@ -9,7 +9,7 @@ public class ProjectManager
   public ProjectManager()
   {
     projects = new ArrayList<>();
-    customers = new ArrayList<>();
+
   }
 
   // Project-related methods
@@ -43,32 +43,7 @@ public class ProjectManager
     return null;
   }
 
-  public void addCustomer(Customer customer)
-  {
-    customers.add(customer);
-  }
 
-  public void removeCustomer(Customer customer)
-  {
-    customers.remove(customer);
-  }
-
-  public List<Customer> getAllCustomers()
-  {
-    return customers;
-  }
-
-  public Customer findCustomerByName(String name)
-  {
-    for (Customer customer : customers)
-    {
-      if (customer.getName().equals(name))
-      {
-        return customer;
-      }
-    }
-    return null;
-  }
 
   public List<Project> getProjectsByType(String projectType)
   {
@@ -99,30 +74,29 @@ public class ProjectManager
 
   public Commercial createDefaultCommercialProject() {
     // You can set default values for Commercial projects here
-    Commercial commercial = new Commercial("Commercial", new MyDate(26, 8, 2001), new MyDate(0,0,0000), new MyDate(0),
-        0, "New Build", 0, 0, 0, 1, "Default Building Use");
+    Commercial commercial = new Commercial("Commercial", new MyDate(26, 8, 2001), this);
 
     // Set specific default values for Commercial
     double estimatedPrice = 500000;
     int durationInMonths = 18;
 
     // Validate the estimated price and duration
-    if (estimatedPrice >= 500000 && estimatedPrice <= 2000000
-        && durationInMonths >= 12 && durationInMonths <= 24) {
+    if (estimatedPrice >= 500000 && estimatedPrice <= 2000000 && durationInMonths >= 12 && durationInMonths <= 24) {
       commercial.setEstimatedPrice(estimatedPrice);
       commercial.setDurationInMonths(durationInMonths);
     } else {
       commercial.setEstimatedPrice(0);
-      commercial.setDurationInMonths(0); // Use the new method to set duration directly
+      commercial.setDurationInMonths(0);
     }
 
     return commercial;
   }
 
-  public Residential createDefaultResidentialProject() {
+
+  public Residential createDefaultResidentialProject()
+  {
     // You can set default values for Residential projects here
-    Residential residential = new Residential("Residential", new MyDate(26, 8, 2001), new MyDate(0, 0, 0000), new MyDate(0),
-        0, "in-progress", 0, 0, 0, 1, 1, 1, true);
+    Residential residential = new Residential("Residential", new MyDate(26, 8, 2001), this);
 
     // Set specific default values for Residential
     double estimatedPrice = 100000; // Set the default estimated price to 400000
@@ -130,10 +104,13 @@ public class ProjectManager
 
     // Validate the estimated price and duration
     if (estimatedPrice >= 100000 && estimatedPrice <= 500000
-        && durationInMonths >= 6 && durationInMonths <= 12) {
+        && durationInMonths >= 6 && durationInMonths <= 12)
+    {
       residential.setEstimatedPrice(estimatedPrice);
       residential.setDurationInMonths(durationInMonths);
-    } else {
+    }
+    else
+    {
       residential.setEstimatedPrice(0);
       residential.setDurationInMonths(0); // Use the new method to set duration directly
     }
@@ -141,10 +118,10 @@ public class ProjectManager
     return residential;
   }
 
-  public Industrial createDefaultIndustrialProject() {
+  public Industrial createDefaultIndustrialProject()
+  {
     // You can set default values for Industrial projects here
-    Industrial industrial = new Industrial("Industrial", new MyDate(26, 8, 2001), new MyDate(0, 0, 0000), new MyDate(0),
-        0, "New Build", 0, 0, 0, "Manufacturing Plant");
+    Industrial industrial = new Industrial("Industrial", new MyDate(26, 8, 2001), this);
 
     // Set specific default values for Industrial
     double estimatedPrice = 2000000; // Set the default estimated price to 8000000
@@ -152,31 +129,38 @@ public class ProjectManager
 
     // Validate the estimated price and duration
     if (estimatedPrice >= 2000000 && estimatedPrice <= 10000000
-        && durationInMonths >= 24 && durationInMonths <= 36) {
+        && durationInMonths >= 24 && durationInMonths <= 36)
+    {
       industrial.setEstimatedPrice(estimatedPrice);
       industrial.setDurationInMonths(durationInMonths);
-    } else {
+    }
+    else
+    {
       industrial.setEstimatedPrice(0);
       industrial.setDurationInMonths(0);
     }
 
     return industrial;
   }
-  public RoadConstruction createDefaultRoadConstructionProject() {
+
+  public RoadConstruction createDefaultRoadConstructionProject()
+  {
     // You can set default values for Road Construction projects here
-    RoadConstruction roadConstruction = new RoadConstruction(
-        "RoadConstruction", new MyDate(26, 8, 2001), new MyDate(0, 0, 0000), new MyDate(0),
-        0, "New Build", 0, 0, 0, 10, 0, "none");
+    RoadConstruction roadConstruction = new RoadConstruction("RoadConstruction",
+        new MyDate(26, 8, 2001), this);
 
     double estimatedPrice = 3000000;
     int durationInMonths = 18;
 
     // Validate the estimated price and duration
     if (estimatedPrice >= 1000000 && estimatedPrice <= 5000000
-        && durationInMonths >= 12 && durationInMonths <= 24) {
+        && durationInMonths >= 12 && durationInMonths <= 24)
+    {
       roadConstruction.setEstimatedPrice(estimatedPrice);
       roadConstruction.setDurationInMonths(durationInMonths);
-    } else {
+    }
+    else
+    {
       roadConstruction.setEstimatedPrice(0);
       roadConstruction.setDurationInMonths(0);
     }
@@ -188,25 +172,29 @@ public class ProjectManager
     Project project;
 
     switch (projectType) {
-      case "RoadConstruction":
-        project = createDefaultRoadConstructionProject();
+      case "Commercial":
+        project = createDefaultCommercialProject();
         break;
       case "Residential":
         project = createDefaultResidentialProject();
         break;
-      case "Commercial":
-        project = createDefaultCommercialProject();
-        break;
       case "Industrial":
         project = createDefaultIndustrialProject();
         break;
-
+      case "RoadConstruction":
+        project = createDefaultRoadConstructionProject();
+        break;
+      // Add other cases for different project types
       default:
         throw new IllegalArgumentException("Unknown project type: " + projectType);
     }
 
+    // Pass default values directly to the Project constructor
+    project.setProjectType(projectType);
+    project.setStartDate(new MyDate(1, 1, 2023)); // Set an appropriate start date
+    // Set other default values if needed
+
     return project;
   }
-
 
 }

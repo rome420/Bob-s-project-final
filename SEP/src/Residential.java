@@ -1,64 +1,55 @@
-class Residential extends Project {
-  private double squareMeters;
-  private int numberOfKitchens;
+public class Residential extends Project {
+  private int numberOfBedrooms;
   private int numberOfBathrooms;
-  private int otherRoomsWithPlumbing;
-  private boolean isNewBuild;
+  private boolean hasBackyard;
 
-  public Residential(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
-      double estimatedPrice, String projectStatus, int projectId, double manHoursUsed,
-      double squareMeters,int numberOfKitchens, int numberOfBathrooms,
-      int otherRoomsWithPlumbing, boolean isNewBuild) {
-    super(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus, projectId, manHoursUsed);
-    this.squareMeters = squareMeters;
-    this.numberOfKitchens = 1;
-    this.numberOfBathrooms = 1;
-    this.otherRoomsWithPlumbing = otherRoomsWithPlumbing;
-    this.isNewBuild = true;
-
+  public Residential(String projectType, MyDate startDate, ProjectManager projectManager) {
+    super(projectType, startDate, projectManager);
+    this.numberOfBedrooms = 0; // Default value, change as needed
+    this.numberOfBathrooms = 0; // Default value, change as needed
+    this.hasBackyard = false; // Default value, change as needed
+    setDefaultValues();
   }
 
+  private void setDefaultValues() {
+    // Set Residential-specific default values
+    double estimatedPrice = 100000; // Set the default estimated price to 400000
+    int durationInMonths = 9; // Set the default duration to 24 months
 
-  public double getSquareMeters() {
-    return squareMeters;
+    // Validate the estimated price and duration
+    if (estimatedPrice >= 100000 && estimatedPrice <= 500000 && durationInMonths >= 6 && durationInMonths <= 12) {
+      this.setEstimatedPrice(estimatedPrice);
+      this.setDurationInMonths(durationInMonths);
+    } else {
+      this.setEstimatedPrice(0);
+      this.setDurationInMonths(0);
+    }
+
+    // Calculate duration in months (if needed)
+    // ...
   }
 
-  public int getNumberOfKitchens() {
-    return numberOfKitchens;
+  public int getNumberOfBedrooms() {
+    return numberOfBedrooms;
   }
 
   public int getNumberOfBathrooms() {
     return numberOfBathrooms;
   }
 
-  public int getOtherRoomsWithPlumbing() {
-    return otherRoomsWithPlumbing;
+  public boolean hasBackyard() {
+    return hasBackyard;
   }
 
-  public boolean getIsNewBuild() {
-    return isNewBuild;
-  }
-
-
-  public void setSquareMeters(double squareMeters) {
-    this.squareMeters = squareMeters;
-  }
-
-  public void setNumberOfKitchens(int numberOfKitchens) {
-    this.numberOfKitchens = numberOfKitchens;
+  public void setNumberOfBedrooms(int numberOfBedrooms) {
+    this.numberOfBedrooms = numberOfBedrooms;
   }
 
   public void setNumberOfBathrooms(int numberOfBathrooms) {
     this.numberOfBathrooms = numberOfBathrooms;
   }
 
-  public void setOtherRoomsWithPlumbing(int otherRoomsWithPlumbing) {
-    this.otherRoomsWithPlumbing = otherRoomsWithPlumbing;
+  public void setHasBackyard(boolean hasBackyard) {
+    this.hasBackyard = hasBackyard;
   }
-
-  public void setNewBuild(boolean isNewBuild) {
-    this.isNewBuild = isNewBuild;
-  }
-
-
 }

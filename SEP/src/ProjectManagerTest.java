@@ -1,44 +1,47 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectManagerTest {
+
   public static void main(String[] args) {
-    // Create ProjectManager
+    // Create an instance of ProjectManager
     ProjectManager projectManager = new ProjectManager();
 
-    // Create projects
-    Commercial commercialProject = projectManager.createDefaultCommercialProject();
-    Residential residentialProject = projectManager.createDefaultResidentialProject();
-    Industrial industrialProject = projectManager.createDefaultIndustrialProject();
-    RoadConstruction roadConstructionProject = projectManager.createDefaultRoadConstructionProject();
+    // Test adding projects
+    Commercial commercialProject = (Commercial) projectManager.createDefaultProject("Commercial");
+    Residential residentialProject = (Residential) projectManager.createDefaultProject("Residential");
 
-    // Add projects to ProjectManager
-    projectManager.addProject(commercialProject, false);
+    projectManager.addProject(commercialProject, true);
     projectManager.addProject(residentialProject, false);
-    projectManager.addProject(industrialProject, false);
-    projectManager.addProject(roadConstructionProject, false);
 
-    // Display all projects
-    List<Project> allProjects = projectManager.getAllProjects();
-    for (Project project : allProjects) {
+    // Test finding a project by ID
+    Project foundProject = projectManager.findProjectById(commercialProject.getId());
+    System.out.println("Found Project: " + foundProject.generateProgressReport());
+
+    // Test getting all projects
+    System.out.println("All Projects:");
+    for (Project project : projectManager.getAllProjects()) {
       System.out.println(project.generateProgressReport());
     }
 
-    // Test finding project by ID
-    double projectIdToFind = residentialProject.getId();
-    Project foundProject = projectManager.findProjectById(projectIdToFind);
-    if (foundProject != null) {
-      System.out.println("\nFound Project by ID: " + foundProject.generateProgressReport());
-    } else {
-      System.out.println("\nProject with ID " + projectIdToFind + " not found.");
-    }
-
-    // Test finding project by type
-    String projectTypeToFind = "Commercial";
-    List<Project> projectsByType = projectManager.getProjectsByType(projectTypeToFind);
-    System.out.println("\nProjects of type " + projectTypeToFind + ":");
-    for (Project project : projectsByType) {
+    // Test getting projects by type
+    List<Project> commercialProjects = projectManager.getProjectsByType("Commercial");
+    System.out.println("Commercial Projects:");
+    for (Project project : commercialProjects) {
       System.out.println(project.generateProgressReport());
     }
+
+    // Test removing a project
+    projectManager.removeProject(commercialProject, true);
+    System.out.println("All Projects after removal:");
+    for (Project project : projectManager.getAllProjects()) {
+      System.out.println(project.generateProgressReport());
+    }
+
+    // Test creating a default project
+    Residential defaultResidentialProject = (Residential) projectManager.createDefaultProject("Residential");
+    System.out.println("Default Project: " + defaultResidentialProject.generateProgressReport());
   }
 }
+
+
+

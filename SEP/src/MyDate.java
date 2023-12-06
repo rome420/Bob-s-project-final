@@ -161,6 +161,12 @@ public class MyDate
     return years;
   }
 
+  public int calculateDurationInMonths(MyDate endDate) {
+    int months = Math.abs((endDate.getYear() - this.getYear()) * 12 +
+        (endDate.getMonth() - this.getMonth()));
+    return months;
+  }
+
   @Override
   public String toString() {
     return String.format("%02d/%02d/%04d", day, month, year);
