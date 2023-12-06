@@ -141,6 +141,27 @@ public class ProjectManager
     return residential;
   }
 
+  public Industrial createDefaultIndustrialProject() {
+    // You can set default values for Industrial projects here
+    Industrial industrial = new Industrial("Industrial", new MyDate(26, 8, 2001), new MyDate(0, 0, 0000), new MyDate(0),
+        0, "New Build", 0, 0, 0, "Manufacturing Plant");
+
+    // Set specific default values for Industrial
+    double estimatedPrice = 2000000; // Set the default estimated price to 8000000
+    int durationInMonths = 30; // Set the default duration to 30 months
+
+    // Validate the estimated price and duration
+    if (estimatedPrice >= 2000000 && estimatedPrice <= 10000000
+        && durationInMonths >= 24 && durationInMonths <= 36) {
+      industrial.setEstimatedPrice(estimatedPrice);
+      industrial.setDurationInMonths(durationInMonths);
+    } else {
+      industrial.setEstimatedPrice(0);
+      industrial.setDurationInMonths(0); // Use the new method to set duration directly
+    }
+
+    return industrial;
+  }
 
 
 
