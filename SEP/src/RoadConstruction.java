@@ -1,4 +1,10 @@
-public class RoadConstruction extends Project {
+/**
+ * A class representing a type of project
+ *
+ * @author Ildo Mota
+ * @version 1.0 December 2023
+ */
+public class RoadConstruction extends Project { // aa
   private double roadLengthKilometers;
   private double roadWidthMeters;
   private int numberOfRoadAlterations;
