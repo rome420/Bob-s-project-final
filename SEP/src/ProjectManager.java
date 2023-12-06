@@ -103,8 +103,8 @@ public class ProjectManager
         0, "New Build", 0, 0, 0, 1, "Default Building Use");
 
     // Set specific default values for Commercial
-    double estimatedPrice = 500000; // Set the default estimated price to 500000
-    int durationInMonths = 18; // Set the default duration to 18 months
+    double estimatedPrice = 500000;
+    int durationInMonths = 18;
 
     // Validate the estimated price and duration
     if (estimatedPrice >= 500000 && estimatedPrice <= 2000000
@@ -157,7 +157,7 @@ public class ProjectManager
       industrial.setDurationInMonths(durationInMonths);
     } else {
       industrial.setEstimatedPrice(0);
-      industrial.setDurationInMonths(0); // Use the new method to set duration directly
+      industrial.setDurationInMonths(0);
     }
 
     return industrial;
@@ -168,9 +168,8 @@ public class ProjectManager
         "RoadConstruction", new MyDate(26, 8, 2001), new MyDate(0, 0, 0000), new MyDate(0),
         0, "New Build", 0, 0, 0, 10, 0, "none");
 
-    // Set specific default values for Road Construction
-    double estimatedPrice = 3000000; // Example value, you can provide any budget here
-    int durationInMonths = 18; // Set the default duration to 30 months
+    double estimatedPrice = 3000000;
+    int durationInMonths = 18;
 
     // Validate the estimated price and duration
     if (estimatedPrice >= 1000000 && estimatedPrice <= 5000000
@@ -179,7 +178,7 @@ public class ProjectManager
       roadConstruction.setDurationInMonths(durationInMonths);
     } else {
       roadConstruction.setEstimatedPrice(0);
-      roadConstruction.setDurationInMonths(0); // Use the new method to set duration directly
+      roadConstruction.setDurationInMonths(0);
     }
 
     return roadConstruction;
