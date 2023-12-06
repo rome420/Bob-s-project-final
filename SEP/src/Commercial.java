@@ -37,8 +37,8 @@ class Commercial extends Project {
     this.buildingUse = buildingUse;
   }
 
-
 }
+
 
 
 

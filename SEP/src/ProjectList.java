@@ -68,4 +68,22 @@ public class ProjectList {
 
     return null;
   }
+
+  public void markProjectAsFinished(double projectId) {
+    Project projectToMark = null;
+
+    for (Project project : unfinishedProjects) {
+      if (project.getId() == projectId) {
+        projectToMark = project;
+        break;
+      }
+    }
+
+    if (projectToMark != null) {
+      unfinishedProjects.remove(projectToMark);
+      completedProjects.add(projectToMark);
+    } else {
+      System.out.println("Project with ID " + projectId + " not found in the unfinished projects list.");
+    }
+  }
 }

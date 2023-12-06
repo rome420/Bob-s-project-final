@@ -1,13 +1,13 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Project
 {
+  int lastAssignedId = 1000;
   private String projectType;
   private MyDate startDate;
   private MyDate endDate;
-  private MyDate expectedDuration;
+  private MyDate durationInMonths;
   private double estimatedPrice;
   private String projectStatus;
   private boolean isFinished;
@@ -19,13 +19,17 @@ public class Project
   {
     this.projectType = projectType;
     this.startDate = startDate;
-    this.endDate = endDate;
-    this.expectedDuration = expectedDuration;
+    if (endDate == null) {
+      this.endDate = new MyDate(); // You can set a default value or leave it as null
+    } else {
+      this.endDate = endDate;
+    }
+    this.durationInMonths = durationInMonths;
     this.estimatedPrice = estimatedPrice;
     this.projectStatus = projectStatus;
     // Assuming the default value for isFinished is false when a project is created
     this.isFinished = false;
-    this.projectId = projectId;
+    this.projectId = ++lastAssignedId;
     this.manHoursUsed = 0;
   }
 
@@ -45,9 +49,9 @@ public class Project
     return endDate;
   }
 
-  public MyDate getExpectedDuration()
+  public MyDate getDurationInMonths()
   {
-    return expectedDuration;
+    return durationInMonths;
   }
 
   public double getEstimatedPrice()
@@ -86,14 +90,17 @@ public class Project
     this.startDate = startDate;
   }
 
-  public void setEndDate(MyDate endDate)
-  {
-    this.endDate = endDate;
+  public void setEndDate(MyDate endDate) {
+    // Allow for setting the endDate to null
+    if (endDate == null) {
+      this.endDate = new MyDate(); // You can set a default value or leave it as null
+    } else {
+      this.endDate = endDate;
+    }
   }
 
-  public void setExpectedDuration(MyDate expectedDuration)
-  {
-    this.expectedDuration = expectedDuration;
+  public void setDurationInMonths(int months) {
+    this.durationInMonths = new MyDate(months);
   }
 
   public void setEstimatedPrice(double estimatedPrice)
@@ -129,7 +136,7 @@ public class Project
     report.append("Project Type: ").append(projectType).append("\n");
     report.append("Start Date: ").append(startDate).append("\n");
     report.append("End Date: ").append(endDate).append("\n");
-    report.append("Expected Duration: ").append(expectedDuration).append("\n");
+    report.append("Expected Duration: ").append(durationInMonths).append("\n");
     report.append("Estimated Price: $").append(estimatedPrice).append("\n");
     report.append("Project Status: ").append(projectStatus).append("\n");
     report.append("Is Finished: ").append(isFinished).append("\n");
@@ -143,10 +150,6 @@ public class Project
 
     return report.toString();
   }
-
-
-
-
 
 
 }
