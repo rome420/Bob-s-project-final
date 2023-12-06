@@ -162,8 +162,28 @@ public class ProjectManager
 
     return industrial;
   }
+  public RoadConstruction createDefaultRoadConstructionProject() {
+    // You can set default values for Road Construction projects here
+    RoadConstruction roadConstruction = new RoadConstruction(
+        "RoadConstruction", new MyDate(26, 8, 2001), new MyDate(0, 0, 0000), new MyDate(0),
+        0, "New Build", 0, 0, 0, 10, 0, "none");
 
+    // Set specific default values for Road Construction
+    double estimatedPrice = 3000000; // Example value, you can provide any budget here
+    int durationInMonths = 18; // Set the default duration to 30 months
 
+    // Validate the estimated price and duration
+    if (estimatedPrice >= 1000000 && estimatedPrice <= 5000000
+        && durationInMonths >= 12 && durationInMonths <= 24) {
+      roadConstruction.setEstimatedPrice(estimatedPrice);
+      roadConstruction.setDurationInMonths(durationInMonths);
+    } else {
+      roadConstruction.setEstimatedPrice(0);
+      roadConstruction.setDurationInMonths(0); // Use the new method to set duration directly
+    }
+
+    return roadConstruction;
+  }
 
 
 }
