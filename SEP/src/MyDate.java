@@ -18,6 +18,12 @@ public class MyDate
     this.month = month;
   }
 
+  public MyDate(){
+    this.day = 0;
+    this.month = 0;
+    this.year = 0000;
+  }
+
   public int getDay()
   {
     return day;
