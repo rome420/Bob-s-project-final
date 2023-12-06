@@ -21,9 +21,53 @@ class Residential extends Project {
 
   }
 
+
   public double getSquareMeters() {
     return squareMeters;
   }
 
+  public int getNumberOfKitchens() {
+    return numberOfKitchens;
+  }
+
+  public int getNumberOfBathrooms() {
+    return numberOfBathrooms;
+  }
+
+  public int getOtherRoomsWithPlumbing() {
+    return otherRoomsWithPlumbing;
+  }
+
+  public boolean getIsNewBuild() {
+    return isNewBuild;
+  }
+
+  public int getTimeline(){
+    return timeline;
+  }
+
+  public void setSquareMeters(double squareMeters) {
+    this.squareMeters = squareMeters;
+  }
+
+  public void setNumberOfKitchens(int numberOfKitchens) {
+    this.numberOfKitchens = numberOfKitchens;
+  }
+
+  public void setNumberOfBathrooms(int numberOfBathrooms) {
+    this.numberOfBathrooms = numberOfBathrooms;
+  }
+
+  public void setOtherRoomsWithPlumbing(int otherRoomsWithPlumbing) {
+    this.otherRoomsWithPlumbing = otherRoomsWithPlumbing;
+  }
+
+  public void setNewBuild(boolean isNewBuild) {
+    this.isNewBuild = isNewBuild;
+  }
+
+  public void setTimeline(int timeline) {
+    this.timeline = timeline;
+  }
 
 }
