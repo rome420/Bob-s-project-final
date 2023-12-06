@@ -119,6 +119,28 @@ public class ProjectManager
     return commercial;
   }
 
+  public Residential createDefaultResidentialProject() {
+    // You can set default values for Residential projects here
+    Residential residential = new Residential("Residential", new MyDate(26, 8, 2001), new MyDate(0, 0, 0000), new MyDate(0),
+        0, "in-progress", 0, 0, 0, 1, 1, 1, true);
+
+    // Set specific default values for Residential
+    double estimatedPrice = 100000; // Set the default estimated price to 400000
+    int durationInMonths = 9; // Set the default duration to 24 months
+
+    // Validate the estimated price and duration
+    if (estimatedPrice >= 100000 && estimatedPrice <= 500000
+        && durationInMonths >= 6 && durationInMonths <= 12) {
+      residential.setEstimatedPrice(estimatedPrice);
+      residential.setDurationInMonths(durationInMonths);
+    } else {
+      residential.setEstimatedPrice(0);
+      residential.setDurationInMonths(0); // Use the new method to set duration directly
+    }
+
+    return residential;
+  }
+
 
 
 
