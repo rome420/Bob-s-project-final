@@ -40,4 +40,3 @@ public class ProjectTest {
 // Expected duration should be calculated by program
 
 // Project ID long or int
-

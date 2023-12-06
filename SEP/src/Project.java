@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Project
 {
-  int lastAssignedId = 1000;
+  private static int lastAssignedId = 1000;
   private String projectType;
   private MyDate startDate;
   private MyDate endDate;
@@ -11,11 +11,11 @@ public class Project
   private double estimatedPrice;
   private String projectStatus;
   private boolean isFinished;
-  private double projectId;
+  private int projectId;
   private double manHoursUsed;
 
   public Project(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration, double estimatedPrice, String projectStatus,
-      double projectId, double manHoursUsed)
+      int projectId, double manHoursUsed)
   {
     this.projectType = projectType;
     this.startDate = startDate;
@@ -69,7 +69,7 @@ public class Project
     return isFinished;
   }
 
-  public double getId()
+  public int getId()
   {
     return projectId;
   }
@@ -118,7 +118,7 @@ public class Project
     this.isFinished = isFinished;
   }
 
-  public void setProjectId(double projectId)
+  public void setProjectId(int projectId)
   {
     this.projectId = projectId;
   }
@@ -152,7 +152,6 @@ public class Project
   }
 
 
+
 }
-
-
 

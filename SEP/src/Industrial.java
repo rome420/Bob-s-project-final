@@ -3,7 +3,7 @@ class Industrial extends Project {
   private String facilityType;
 
   public Industrial(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
-      double estimatedPrice, String projectStatus, double projectId, double manHoursUsed,
+      double estimatedPrice, String projectStatus, int projectId, double manHoursUsed,
       double squareMeters,String facilityType) {
     super(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus, projectId, manHoursUsed);
     this.squareMeters = squareMeters;

@@ -13,7 +13,7 @@ public class RoadConstruction extends Project { // aa
   public RoadConstruction(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
       double estimatedPrice, String projectStatus, double projectId, double manHoursUsed,
       double roadLengthKilometers,double roadWidthMeters,int numberOfRoadAlterations,String challenges) {
-    super(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus, projectId, manHoursUsed);
+    super(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus, manHoursUsed);
 
     this.roadLengthKilometers =roadLengthKilometers ;
     this.roadWidthMeters = roadWidthMeters;

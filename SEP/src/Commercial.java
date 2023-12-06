@@ -5,7 +5,7 @@ class Commercial extends Project {
 
 
   public Commercial(String projectType, MyDate startDate, MyDate endDate, MyDate durationInMonths,
-      double estimatedPrice, String projectStatus, double projectId, double manHoursUsed,
+      double estimatedPrice, String projectStatus, int projectId, double manHoursUsed,
       double squareMeters,int numberOfFloors,String buildingUse) {
     super(projectType, startDate, endDate, durationInMonths, estimatedPrice, projectStatus, projectId, manHoursUsed);
     this.squareMeters = squareMeters;
@@ -37,8 +37,8 @@ class Commercial extends Project {
     this.buildingUse = buildingUse;
   }
 
-}
 
+}
 
 
 

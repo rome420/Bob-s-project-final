@@ -6,7 +6,7 @@ class Residential extends Project {
   private boolean isNewBuild;
 
   public Residential(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
-      double estimatedPrice, String projectStatus, double projectId, double manHoursUsed,
+      double estimatedPrice, String projectStatus, int projectId, double manHoursUsed,
       double squareMeters,int numberOfKitchens, int numberOfBathrooms,
       int otherRoomsWithPlumbing, boolean isNewBuild) {
     super(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus, projectId, manHoursUsed);

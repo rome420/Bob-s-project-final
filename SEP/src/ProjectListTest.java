@@ -1,43 +1,52 @@
+import java.util.ArrayList;
+import java.util.List;
 public class ProjectListTest {
 
   public static void main(String[] args) {
-    // Create a sample project list for testing
-    ProjectList projectList = new ProjectList("Sample Project", new MyDate(2023, 1, 1),
-        new MyDate(2023, 2, 1), new MyDate(0, 1, 0), 1000.0, "In-Progress", 12345, 0);
+    // Creating instances of MyDate for the projects
+    MyDate startDate1 = new MyDate(2023, 1, 1);
+    MyDate startDate2 = new MyDate(2023, 2, 1);
 
-    // Test adding projects
-    Project project1 = new Project("Project 1", new MyDate(2023, 3, 1),
-        new MyDate(2023, 4, 1), new MyDate(0, 1, 0), 1500.0, "Completed", 54321, 10.5);
-    projectList.addProject(project1, true);
+    // Creating an instance of ProjectList
+    ProjectList projectList = new ProjectList();
 
-    Project project2 = new Project("Project 2", new MyDate(2023, 5, 1),
-        new MyDate(2023, 6, 1), new MyDate(0, 2, 0), 2000.0, "In-Progress", 67890, 20.5);
+    // Creating projects and adding them to the list
+    Project project1 = new Project("Commercial", startDate1, null, new MyDate(), 1000000, "InProgress", 0, 0);
+    Project project2 = new Project("Residential", startDate2, null, new MyDate(), 500000, "NewBuild", 0, 0);
+
+    projectList.addProject(project1, false);
     projectList.addProject(project2, false);
 
-    // Test retrieving projects by ID
-    Project retrievedProject = projectList.retrieveProjectById(54321);
-    System.out.println("Retrieved Project by ID: " + retrievedProject.generateProgressReport());
-
-    // Test removing projects
-    projectList.removeProject(project1, true);
-
-    // Test searching projects by type
-    Project searchedProject = projectList.searchProjectByType("Project 2");
-    if (searchedProject != null) {
-      System.out.println("Searched Project by Type: " + searchedProject.generateProgressReport());
-    } else {
-      System.out.println("Project not found.");
-    }
-
-    // Print the lists of completed and unfinished projects
+    // Displaying completed and unfinished projects
     System.out.println("Completed Projects:");
-    for (Project p : projectList.getCompletedProjects()) {
-      System.out.println(p.generateProgressReport());
-    }
+    displayProjects(projectList.getCompletedProjects());
 
     System.out.println("\nUnfinished Projects:");
-    for (Project p : projectList.getUnfinishedProjects()) {
-      System.out.println(p.generateProgressReport());
+    displayProjects(projectList.getUnfinishedProjects());
+
+    // Retrieving a project by ID
+    double projectIdToRetrieve = project1.getId();
+    Project retrievedProject = projectList.retrieveProjectById(projectIdToRetrieve);
+    if (retrievedProject != null) {
+      System.out.println("\nFound Project by ID: " + retrievedProject.generateProgressReport());
+    } else {
+      System.out.println("\nProject with ID " + projectIdToRetrieve + " not found.");
+    }
+
+    // Removing a project
+    double projectIdToRemove = project2.getId();
+    projectList.removeProject(project2, false);
+
+    // Displaying updated lists
+    System.out.println("\nUpdated Unfinished Projects after removal:");
+    displayProjects(projectList.getUnfinishedProjects());
+  }
+
+  private static void displayProjects(
+      List<Project> projects) {
+    for (Project project : projects) {
+      System.out.println(project.generateProgressReport());
+      System.out.println();
     }
   }
 }
