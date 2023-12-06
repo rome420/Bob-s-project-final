@@ -3,18 +3,17 @@ public class RoadConstruction extends Project {
   private double roadWidthMeters;
   private int numberOfRoadAlterations;
   private String challenges;
-  private double budget;////wfwqfweqvqwdwq
-
 
   public RoadConstruction(String projectType, MyDate startDate, MyDate endDate, MyDate expectedDuration,
-      double estimatedPrice, String projectStatus, double projectId, double manHoursUsed) {
+      double estimatedPrice, String projectStatus, double projectId, double manHoursUsed,
+      double roadLengthKilometers,double roadWidthMeters,int numberOfRoadAlterations,String challenges) {
     super(projectType, startDate, endDate, expectedDuration, estimatedPrice, projectStatus, projectId, manHoursUsed);
 
     this.roadLengthKilometers =roadLengthKilometers ;
     this.roadWidthMeters = roadWidthMeters;
     this.numberOfRoadAlterations = 0;
     this.challenges = "None";
-    this.budget = budget;
+
   }
 
   public double getRoadLengthKilometers() {
@@ -33,9 +32,6 @@ public class RoadConstruction extends Project {
     return challenges;
   }
 
-  public double getBudget() {
-    return budget;
-  }
 
   public void setRoadLengthKilometers(double roadLengthKilometers) {
     this.roadLengthKilometers = roadLengthKilometers;
@@ -45,28 +41,13 @@ public class RoadConstruction extends Project {
     this.roadWidthMeters = roadWidthMeters;
   }
 
-  public void setNumberOfRoadAlterations(int numberOfRoadAlterations) {  // Changed from setNumberOfAlterations
+  public void setNumberOfRoadAlterations(int numberOfRoadAlterations) {
     this.numberOfRoadAlterations = numberOfRoadAlterations;
   }
 
   public void setChallenges(String challenges) {
     this.challenges = challenges;
   }
-
-  public void setBudget(double budget) {
-    this.budget = budget;
-  }
-
-
-  public void updateRoadInformation(double newRoadLength, double newRoadWidth, int newNumberOfRoadAlterations, String newChallenges, double newBudget) {
-    roadLengthKilometers = newRoadLength;
-    roadWidthMeters = newRoadWidth;
-    numberOfRoadAlterations = newNumberOfRoadAlterations;
-    challenges = newChallenges;
-    budget = newBudget;
-  }
-
-
 
 
 }
