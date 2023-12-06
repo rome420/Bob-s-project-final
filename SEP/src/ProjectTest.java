@@ -12,7 +12,7 @@ public class ProjectTest {
     System.out.println("Project Type: " + project.getProjectType());
     System.out.println("Start Date: " + project.getStartDate());
     System.out.println("End Date: " + project.getEndDate());
-    System.out.println("Expected Duration: " + project.getExpectedDuration());
+    System.out.println("Expected Duration: " + project.getDurationInMonths());
     System.out.println("Estimated Price: $" + project.getEstimatedPrice());
     System.out.println("Project Status: " + project.getProjectStatus());
     System.out.println("Is Finished: " + project.getFinishedProjects());
@@ -23,7 +23,7 @@ public class ProjectTest {
     project.setProjectType("New Project Type");
     project.setStartDate(new MyDate(2023, 3, 1));
     project.setEndDate(new MyDate(2023, 4, 1));
-    project.setExpectedDuration(new MyDate(0, 2, 0)); // 2 months
+    project.setDurationInMonths(9); // 2 months
     project.setEstimatedPrice(1500.0);
     project.setProjectStatus("Completed");
     project.setFinishedProjects(true);
