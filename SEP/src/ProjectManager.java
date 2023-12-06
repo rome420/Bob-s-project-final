@@ -184,6 +184,30 @@ public class ProjectManager
     return roadConstruction;
   }
 
+  public Project createDefaultProject(String projectType) {
+    Project project;
+
+    switch (projectType) {
+      case "RoadConstruction":
+        project = createDefaultRoadConstructionProject();
+        break;
+      case "Residential":
+        project = createDefaultResidentialProject();
+        break;
+      case "Commercial":
+        project = createDefaultCommercialProject();
+        break;
+      case "Industrial":
+        project = createDefaultIndustrialProject();
+        break;
+
+      default:
+        throw new IllegalArgumentException("Unknown project type: " + projectType);
+    }
+
+    return project;
+  }
+
 
 }
 
